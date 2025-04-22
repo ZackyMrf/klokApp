@@ -92,7 +92,7 @@ export class EnhancedKlokappBot {
     
     // Create info box with more details
     console.log(boxen(
-      `${chalk.bold(gradient.morning('Enhanced KlokApp Chat Bot v2.0.0'))}\n\n` +
+      `${chalk.bold(gradient.morning(' KlokApp Chat Bot v2.0.0'))}\n\n` +
       `${chalk.blue('•')} ${chalk.bold('Started:')} ${dateTimeStr}\n` +
       `${chalk.blue('•')} ${chalk.bold('Wallets:')} ${this.wallets.length}\n` +
       `${chalk.blue('•')} ${chalk.bold('Mode:')} ${this.scheduleMode}\n` +
