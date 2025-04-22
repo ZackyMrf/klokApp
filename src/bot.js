@@ -68,28 +68,54 @@ export class EnhancedKlokappBot {
   displayBanner() {
     console.clear();
     
+    // Create a more vibrant title with gradient
     const title = figlet.textSync('KlokApp Bot', {
-      font: 'Big',
+      font: 'ANSI Shadow',
       horizontalLayout: 'default',
       verticalLayout: 'default',
     });
     
-    console.log(gradient.rainbow(title));
+    console.log(gradient.pastel(title));
     
+    // ASCII art decoration
+    const logo = `
+      ⚡️ ${'K'.padEnd(4)}  ${'L'.padEnd(4)}  ${'O'.padEnd(4)}  ${'K'.padEnd(4)} ⚡️ 
+      ${' '.padEnd(4)}  ${' '.padEnd(4)}  ${' '.padEnd(4)}  ${' '.padEnd(4)}
+      🤖 ${'B'.padEnd(4)}  ${'O'.padEnd(4)}  ${'T'.padEnd(4)}  ${' '.padEnd(4)} 🤖
+    `;
+    
+    console.log(gradient.cristal(logo));
+    
+    // Get current date/time
+    const now = new Date();
+    const dateTimeStr = now.toLocaleString();
+    
+    // Create info box with more details
     console.log(boxen(
-      `${chalk.bold('Enhanced Klokapp Chat Bot')}\n\n` +
-      `${chalk.blue('•')} ${chalk.bold('Version:')} 2.0.0\n` +
+      `${chalk.bold(gradient.morning('Enhanced KlokApp Chat Bot v2.0.0'))}\n\n` +
+      `${chalk.blue('•')} ${chalk.bold('Started:')} ${dateTimeStr}\n` +
       `${chalk.blue('•')} ${chalk.bold('Wallets:')} ${this.wallets.length}\n` +
       `${chalk.blue('•')} ${chalk.bold('Mode:')} ${this.scheduleMode}\n` +
       `${chalk.blue('•')} ${chalk.bold('Persistent Threads:')} ${this.persistentThreads ? 'Enabled' : 'Disabled'}\n` +
-      `${chalk.blue('•')} ${chalk.bold('Dev:')} @YourCryptoHandle`,
+      `${chalk.blue('•')} ${chalk.bold('Min Chat Interval:')} ${this.minChatInterval / 1000}s\n` +
+      `${chalk.blue('•')} ${chalk.bold('Max Chat Delay:')} ${this.maxChatDelay / 60000}min\n` +
+      `${chalk.yellow('•')} ${chalk.bold('v2.0.0:')} mrf\n\n` +
+      `${chalk.italic('Automated chat interaction for KlokApp - Use responsibly')}`,
       {
         padding: 1,
         margin: 1,
         borderStyle: 'round',
         borderColor: 'cyan',
+        backgroundColor: '#222',
+        float: 'center',
+        align: 'center',
+        title: '🚀 KlokApp Bot 🚀',
+        titleAlignment: 'center',
       }
     ));
+    
+    // Add separator line
+    console.log('\n' + chalk.cyan('─'.repeat(process.stdout.columns || 80)) + '\n');
   }
 
   // Get next wallet using round-robin approach
